@@ -1,11 +1,141 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coudek GIF Studio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0a0a0a;
+      color: #ffffff;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #b3b3b3;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    button {
+      background: white;
+      color: black;
+      border: none;
+      padding: 10px 16px;
+      margin: 5px;
+      cursor: pointer;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    .card {
+      background: #161616;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .gif-box {
+      height: 140px;
+      background: #1f1f1f;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #777;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: #777;
+    }
+  </style>
+</head>
 <body>
 
-<h1>My Portfolio</h1>
+  <header>
+    <h1>Coudek GIF Studio</h1>
+    <p>High-performance reaction GIFs, memes and motion assets built for modern social platforms.</p>
+    <div class="buttons">
+      <button onclick="scrollToGallery()">View GIFs</button>
+      <button onclick="alert('Contact: add your email here')">Contact</button>
+    </div>
+  </header>
 
-<p>My first paragraph.</p>
+  <section>
+    <div class="grid">
+      <div class="card">
+        <h3>GIFs</h3>
+        <p>200+</p>
+      </div>
+      <div class="card">
+        <h3>Platforms</h3>
+        <p>GIPHY / Instagram</p>
+      </div>
+      <div class="card">
+        <h3>Focus</h3>
+        <p>Reactions & Memes</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <h2>Featured GIFs</h2>
+    <div class="grid">
+      <div class="gif-box">GIF 1</div>
+      <div class="gif-box">GIF 2</div>
+      <div class="gif-box">GIF 3</div>
+      <div class="gif-box">GIF 4</div>
+      <div class="gif-box">GIF 5</div>
+      <div class="gif-box">GIF 6</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+      <h2>Let’s work</h2>
+      <p>Custom GIFs, branding assets, and collaborations.</p>
+      <button onclick="alert('Add your email or form here')">Get in touch</button>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Coudek GIF Studio
+  </footer>
+
+  <script>
+    function scrollToGallery() {
+      document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
 
 </body>
 </html>
-
