@@ -3,7 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Coudek GIF Studio</title>
+  <meta name="description" content="Coudek GIF Studio - premium reaction GIFs, memes and motion assets for GIPHY and Instagram." />
+  <meta name="keywords" content="GIFs, memes, reactions, GIPHY creator, Instagram GIFs" />
+  <meta name="author" content="Coudek" />
+
+  <meta property="og:title" content="Coudek GIF Studio" />
+  <meta property="og:description" content="Premium reaction GIFs and meme animations." />
+  <meta property="og:type" content="website" />
+
   <style>
     :root{
       --bg:#0b0f14;
@@ -15,233 +24,169 @@
       --accent2:#00d4ff;
     }
 
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
-    }
+    *{margin:0;padding:0;box-sizing:border-box;}
 
     body{
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      background: radial-gradient(1200px 600px at 20% 0%, rgba(124,92,255,0.25), transparent),
-                  radial-gradient(1000px 500px at 80% 10%, rgba(0,212,255,0.18), transparent),
-                  var(--bg);
+      font-family:ui-sans-serif,system-ui;
+      background:radial-gradient(1000px 500px at 20% 0%,rgba(124,92,255,0.25),transparent),
+                 radial-gradient(900px 500px at 80% 0%,rgba(0,212,255,0.15),transparent),
+                 var(--bg);
       color:var(--text);
-      line-height:1.6;
     }
 
-    a{color:inherit;text-decoration:none;}
+    .container{max-width:1100px;margin:auto;padding:30px;}
 
-    .container{
-      max-width:1100px;
-      margin:auto;
-      padding:40px 20px;
-    }
-
-    /* NAV */
     nav{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
+      display:flex;justify-content:space-between;align-items:center;
       padding:20px 0;
     }
 
-    .logo{
-      font-weight:700;
-      letter-spacing:1px;
-    }
+    .logo{font-weight:700;letter-spacing:1px;}
 
-    .nav-links a{
-      margin-left:20px;
-      color:var(--muted);
-      font-size:14px;
-    }
-
-    .nav-links a:hover{
-      color:var(--text);
-    }
-
-    /* HERO */
     .hero{
       text-align:center;
-      padding:80px 20px 60px;
+      padding:70px 20px;
     }
 
-    .hero h1{
-      font-size:48px;
-      letter-spacing:-1px;
-      margin-bottom:12px;
-    }
-
-    .hero p{
-      color:var(--muted);
-      max-width:600px;
-      margin:auto;
-    }
-
-    .btn-group{
-      margin-top:25px;
-      display:flex;
-      justify-content:center;
-      gap:12px;
-      flex-wrap:wrap;
-    }
+    .hero h1{font-size:46px;}
+    .hero p{color:var(--muted);max-width:600px;margin:10px auto;}
 
     .btn{
-      padding:10px 16px;
+      padding:10px 14px;
       border-radius:10px;
       border:1px solid var(--border);
       background:var(--panel);
       color:var(--text);
       cursor:pointer;
-      transition:0.2s;
-      backdrop-filter: blur(10px);
-    }
-
-    .btn:hover{
-      transform:translateY(-2px);
-      border-color:var(--accent);
     }
 
     .btn.primary{
       background:linear-gradient(135deg,var(--accent),var(--accent2));
       border:none;
-      color:white;
     }
 
-    /* GRID */
     .grid{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:16px;
-      margin-top:40px;
+      gap:15px;
+      margin-top:30px;
     }
 
     .card{
       background:var(--panel);
       border:1px solid var(--border);
-      border-radius:16px;
-      padding:20px;
-      backdrop-filter: blur(12px);
-      transition:0.2s;
+      border-radius:14px;
+      padding:15px;
     }
 
-    .card:hover{
-      transform:translateY(-3px);
-      border-color:rgba(124,92,255,0.4);
-    }
-
-    .gif{
-      height:140px;
+    .gif img{
+      width:100%;
       border-radius:12px;
-      background:rgba(255,255,255,0.05);
+      display:block;
+    }
+
+    .search{
       display:flex;
-      align-items:center;
+      gap:10px;
       justify-content:center;
-      color:var(--muted);
-      font-size:13px;
+      margin-top:20px;
     }
 
-    /* SECTION TITLE */
-    h2{
-      margin-top:60px;
-      margin-bottom:20px;
-      font-size:24px;
-    }
-
-    /* CONTACT */
-    form{
-      display:grid;
-      gap:12px;
-    }
-
-    input, textarea{
-      padding:12px;
+    input{
+      padding:10px;
       border-radius:10px;
       border:1px solid var(--border);
       background:rgba(255,255,255,0.05);
       color:var(--text);
-      outline:none;
+      width:260px;
     }
 
-    textarea{
-      min-height:120px;
-      resize:vertical;
+    section{margin-top:60px;}
+
+    form{
+      display:grid;
+      gap:10px;
     }
 
-    footer{
-      text-align:center;
-      padding:50px 20px;
-      color:var(--muted);
-      font-size:13px;
+    textarea,input{
+      padding:10px;
+      border-radius:10px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,0.05);
+      color:var(--text);
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <nav>
-      <div class="logo">Coudek GIF Studio</div>
-      <div class="nav-links">
-        <a href="#work">Work</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
+  <nav>
+    <div class="logo">Coudek GIF Studio</div>
+    <div>
+      <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact</button>
+    </div>
+  </nav>
 
-    <section class="hero">
-      <h1>Modern GIF Creation Studio</h1>
-      <p>Premium reaction GIFs, motion assets, and meme content designed for social platforms like Instagram and GIPHY.</p>
-      <div class="btn-group">
-        <button class="btn primary" onclick="document.getElementById('work').scrollIntoView({behavior:'smooth'})">View Work</button>
-        <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact</button>
-      </div>
-    </section>
+  <div class="hero">
+    <h1>Premium GIF Creation Studio</h1>
+    <p>High-quality reaction GIFs and meme content distributed via GIPHY and modern social platforms.</p>
 
-    <section>
-      <div class="grid">
-        <div class="card">
-          <strong>GIF Output</strong>
-          <p style="color:var(--muted)">200+ assets</p>
-        </div>
-        <div class="card">
-          <strong>Platforms</strong>
-          <p style="color:var(--muted)">GIPHY / Instagram</p>
-        </div>
-        <div class="card">
-          <strong>Specialization</strong>
-          <p style="color:var(--muted)">Reactions & memes</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="work">
-      <h2>Featured Work</h2>
-      <div class="grid">
-        <div class="card"><div class="gif">GIF preview</div></div>
-        <div class="card"><div class="gif">GIF preview</div></div>
-        <div class="card"><div class="gif">GIF preview</div></div>
-        <div class="card"><div class="gif">GIF preview</div></div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <div class="card">
-        <form action="mailto:Ondra10x10@outlook.cz" method="post" enctype="text/plain">
-          <input type="text" name="name" placeholder="Your name" required />
-          <input type="email" name="email" placeholder="Your email" required />
-          <textarea name="message" placeholder="Your message" required></textarea>
-          <button class="btn primary" type="submit">Send Message</button>
-        </form>
-      </div>
-    </section>
-
-    <footer>
-      © 2026 Coudek GIF Studio — All rights reserved
-    </footer>
-
+    <div class="search">
+      <input id="query" placeholder="Search GIFs..." />
+      <button class="btn primary" onclick="searchGIFs()">Search</button>
+    </div>
   </div>
+
+  <section>
+    <div id="gif-grid" class="grid"></div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="card">
+      <form action="mailto:Ondra10x10@outlook.cz" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <textarea name="message" placeholder="Message" required></textarea>
+        <button class="btn primary" type="submit">Send</button>
+      </form>
+    </div>
+  </section>
+
+</div>
+
+<script>
+const API_KEY = "YOUR_GIPHY_API_KEY";
+
+async function loadTrending(){
+  const res = await fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}&limit=12`);
+  const data = await res.json();
+  render(data.data);
+}
+
+async function searchGIFs(){
+  const q = document.getElementById('query').value;
+  const res = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${q}&limit=12`);
+  const data = await res.json();
+  render(data.data);
+}
+
+function render(items){
+  const grid = document.getElementById('gif-grid');
+  grid.innerHTML = '';
+
+  items.forEach(gif => {
+    const url = gif.images.fixed_height.url;
+    const div = document.createElement('div');
+    div.className = 'card gif';
+    div.innerHTML = `<img src="${url}" />`;
+    grid.appendChild(div);
+  });
+}
+
+loadTrending();
+</script>
 
 </body>
 </html>
