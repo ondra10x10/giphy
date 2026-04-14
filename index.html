@@ -5,137 +5,243 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Coudek GIF Studio</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0a0a0a;
-      color: #ffffff;
+    :root{
+      --bg:#0b0f14;
+      --panel:rgba(255,255,255,0.06);
+      --border:rgba(255,255,255,0.10);
+      --text:#e8eef6;
+      --muted:#9aa4b2;
+      --accent:#7c5cff;
+      --accent2:#00d4ff;
     }
 
-    header {
-      text-align: center;
-      padding: 60px 20px;
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
     }
 
-    h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
+    body{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background: radial-gradient(1200px 600px at 20% 0%, rgba(124,92,255,0.25), transparent),
+                  radial-gradient(1000px 500px at 80% 10%, rgba(0,212,255,0.18), transparent),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.6;
     }
 
-    p {
-      color: #b3b3b3;
-      max-width: 600px;
-      margin: 0 auto;
+    a{color:inherit;text-decoration:none;}
+
+    .container{
+      max-width:1100px;
+      margin:auto;
+      padding:40px 20px;
     }
 
-    .buttons {
-      margin-top: 20px;
+    /* NAV */
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 0;
     }
 
-    button {
-      background: white;
-      color: black;
-      border: none;
-      padding: 10px 16px;
-      margin: 5px;
-      cursor: pointer;
-      border-radius: 6px;
-      font-weight: bold;
+    .logo{
+      font-weight:700;
+      letter-spacing:1px;
     }
 
-    section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 40px 20px;
+    .nav-links a{
+      margin-left:20px;
+      color:var(--muted);
+      font-size:14px;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
+    .nav-links a:hover{
+      color:var(--text);
     }
 
-    .card {
-      background: #161616;
-      padding: 20px;
-      border-radius: 12px;
-      text-align: center;
+    /* HERO */
+    .hero{
+      text-align:center;
+      padding:80px 20px 60px;
     }
 
-    .gif-box {
-      height: 140px;
-      background: #1f1f1f;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #777;
+    .hero h1{
+      font-size:48px;
+      letter-spacing:-1px;
+      margin-bottom:12px;
     }
 
-    footer {
-      text-align: center;
-      padding: 40px;
-      color: #777;
+    .hero p{
+      color:var(--muted);
+      max-width:600px;
+      margin:auto;
+    }
+
+    .btn-group{
+      margin-top:25px;
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:10px 16px;
+      border-radius:10px;
+      border:1px solid var(--border);
+      background:var(--panel);
+      color:var(--text);
+      cursor:pointer;
+      transition:0.2s;
+      backdrop-filter: blur(10px);
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+      border-color:var(--accent);
+    }
+
+    .btn.primary{
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      border:none;
+      color:white;
+    }
+
+    /* GRID */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:16px;
+      margin-top:40px;
+    }
+
+    .card{
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:20px;
+      backdrop-filter: blur(12px);
+      transition:0.2s;
+    }
+
+    .card:hover{
+      transform:translateY(-3px);
+      border-color:rgba(124,92,255,0.4);
+    }
+
+    .gif{
+      height:140px;
+      border-radius:12px;
+      background:rgba(255,255,255,0.05);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* SECTION TITLE */
+    h2{
+      margin-top:60px;
+      margin-bottom:20px;
+      font-size:24px;
+    }
+
+    /* CONTACT */
+    form{
+      display:grid;
+      gap:12px;
+    }
+
+    input, textarea{
+      padding:12px;
+      border-radius:10px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,0.05);
+      color:var(--text);
+      outline:none;
+    }
+
+    textarea{
+      min-height:120px;
+      resize:vertical;
+    }
+
+    footer{
+      text-align:center;
+      padding:50px 20px;
+      color:var(--muted);
+      font-size:13px;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Coudek GIF Studio</h1>
-    <p>High-performance reaction GIFs, memes and motion assets built for modern social platforms.</p>
-    <div class="buttons">
-      <button onclick="scrollToGallery()">View GIFs</button>
-      <button onclick="alert('Contact: add your email here')">Contact</button>
-    </div>
-  </header>
+  <div class="container">
 
-  <section>
-    <div class="grid">
-      <div class="card">
-        <h3>GIFs</h3>
-        <p>200+</p>
+    <nav>
+      <div class="logo">Coudek GIF Studio</div>
+      <div class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
       </div>
-      <div class="card">
-        <h3>Platforms</h3>
-        <p>GIPHY / Instagram</p>
+    </nav>
+
+    <section class="hero">
+      <h1>Modern GIF Creation Studio</h1>
+      <p>Premium reaction GIFs, motion assets, and meme content designed for social platforms like Instagram and GIPHY.</p>
+      <div class="btn-group">
+        <button class="btn primary" onclick="document.getElementById('work').scrollIntoView({behavior:'smooth'})">View Work</button>
+        <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact</button>
       </div>
-      <div class="card">
-        <h3>Focus</h3>
-        <p>Reactions & Memes</p>
+    </section>
+
+    <section>
+      <div class="grid">
+        <div class="card">
+          <strong>GIF Output</strong>
+          <p style="color:var(--muted)">200+ assets</p>
+        </div>
+        <div class="card">
+          <strong>Platforms</strong>
+          <p style="color:var(--muted)">GIPHY / Instagram</p>
+        </div>
+        <div class="card">
+          <strong>Specialization</strong>
+          <p style="color:var(--muted)">Reactions & memes</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="gallery">
-    <h2>Featured GIFs</h2>
-    <div class="grid">
-      <div class="gif-box">GIF 1</div>
-      <div class="gif-box">GIF 2</div>
-      <div class="gif-box">GIF 3</div>
-      <div class="gif-box">GIF 4</div>
-      <div class="gif-box">GIF 5</div>
-      <div class="gif-box">GIF 6</div>
-    </div>
-  </section>
+    <section id="work">
+      <h2>Featured Work</h2>
+      <div class="grid">
+        <div class="card"><div class="gif">GIF preview</div></div>
+        <div class="card"><div class="gif">GIF preview</div></div>
+        <div class="card"><div class="gif">GIF preview</div></div>
+        <div class="card"><div class="gif">GIF preview</div></div>
+      </div>
+    </section>
 
-  <section>
-    <div class="card">
-      <h2>Let’s work</h2>
-      <p>Custom GIFs, branding assets, and collaborations.</p>
-      <button onclick="alert('Add your email or form here')">Get in touch</button>
-    </div>
-  </section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="card">
+        <form action="mailto:Ondra10x10@outlook.cz" method="post" enctype="text/plain">
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="email" name="email" placeholder="Your email" required />
+          <textarea name="message" placeholder="Your message" required></textarea>
+          <button class="btn primary" type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
 
-  <footer>
-    © 2026 Coudek GIF Studio
-  </footer>
+    <footer>
+      © 2026 Coudek GIF Studio — All rights reserved
+    </footer>
 
-  <script>
-    function scrollToGallery() {
-      document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
-    }
-  </script>
+  </div>
 
 </body>
 </html>
